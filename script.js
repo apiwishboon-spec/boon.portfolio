@@ -1,5 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Scrollytelling initialized.");
+    console.log("Mission Control: Systems Online.");
+
+    // 0. Space Theme: Celestial Assets
+    const hero = document.getElementById('hero');
+    if (hero) {
+        // Add Nebulas
+        ['nebula-1', 'nebula-2', 'nebula-3'].forEach(n => {
+            const deb = document.createElement('div');
+            deb.className = `nebula ${n}`;
+            hero.appendChild(deb);
+        });
+
+        // Add Floating Planets
+        const planets = ['planet-saturn', 'planet-mars'];
+        planets.forEach((p, i) => {
+            const planet = document.createElement('div');
+            planet.className = `celestial-body ${p}`;
+            planet.style.left = (20 + i * 50) + '%';
+            planet.style.top = (30 + i * 20) + '%';
+            planet.style.animation = `float ${15 + i * 5}s ease-in-out infinite`;
+            hero.appendChild(planet);
+        });
+    }
+
+    // 0. Space Theme: Starfield Generation
+    const starfield = document.getElementById('starfield');
+    if (starfield) {
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 1 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            starfield.appendChild(star);
+        }
+    }
+
+    // 0. Code Theme: Typewriter Effect
+    const typewriter = document.getElementById('typewriter');
+    if (typewriter) {
+        const text = typewriter.getAttribute('data-text');
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                typewriter.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, 50);
+            }
+        }
+        // Start typing after a short delay
+        setTimeout(() => {
+            typewriter.style.opacity = '1';
+            type();
+        }, 1200);
+    }
 
     // 1. Intersection Observer for Scroll Reveals
     const observerOptions = {
