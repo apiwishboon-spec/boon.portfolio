@@ -1,25 +1,54 @@
-/* Fonts */
 :root {
     --font-primary: 'Outfit', sans-serif;
     --font-secondary: 'Inter', sans-serif;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-    /* Theme Colors */
+
+    /* Theme Independent Colors */
     --color-primary-green: #78c2ad;
-    /* A nice pastel mint */
     --color-primary-hover: #5aa892;
+}
+
+/* Dark Theme (Default/Deep Space) */
+[data-theme='dark'] {
+    --bg-color: #0f0f1a;
+    --text-color: #f0f2f5;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    /* Very transparent for dark */
+    --card-border: rgba(255, 255, 255, 0.1);
+    --grid-color: rgba(120, 194, 173, 0.15);
+    --navbar-bg: rgba(15, 15, 26, 0.8);
+    --star-color: #ffffff;
+    --nebula-opacity: 0.15;
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+/* Light Theme (Day Sky) */
+[data-theme='light'] {
+    --bg-color: #f8faff;
+    --text-color: #1a1a2e;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(120, 194, 173, 0.3);
+    --grid-color: rgba(120, 194, 173, 0.1);
+    --navbar-bg: rgba(248, 250, 255, 0.8);
+    --star-color: #78c2ad;
+    /* Mint stars in daytime */
+    --nebula-opacity: 0.1;
+    --shadow-light: #ffffff;
+    --shadow-dark: #d1d9e6;
 }
 
 body {
     font-family: var(--font-secondary);
+    color: var(--text-color);
+    background-color: var(--bg-color);
     overflow-x: hidden;
-    background-color: #f0f2f5;
-    /* Match Morph body bg */
+    transition: background-color 0.5s ease, color 0.5s ease;
     background-image:
-        linear-gradient(rgba(120, 194, 173, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(120, 194, 173, 0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
-    /* Technical Grid */
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 50px 50px;
 }
 
 h1,
@@ -82,28 +111,30 @@ h6,
 /* Navbar Blur */
 .blurred-nav {
     backdrop-filter: blur(10px);
-    background-color: rgba(240, 242, 245, 0.8) !important;
+    background-color: var(--navbar-bg) !important;
+    transition: background-color 0.5s ease;
 }
 
 /* Glassmorphism & Deep Shadows */
 .shadow-soft {
     box-shadow:
-        10px 10px 20px rgba(0, 0, 0, 0.05),
-        -10px -10px 20px rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        10px 10px 20px var(--shadow-dark),
+        -10px -10px 20px var(--shadow-light) !important;
+    border: 1px solid var(--card-border) !important;
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border) !important;
+    transition: background 0.5s ease, border 0.5s ease;
 }
 
 .btn-primary.shadow-soft {
     position: relative;
     overflow: hidden;
-    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #ffffff !important;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light) !important;
     border: none;
     transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s;
 }
@@ -141,14 +172,15 @@ h6,
 
 /* Hero Space Theme */
 #starfield {
-    background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%);
+    background: var(--bg-color);
     z-index: 0;
+    transition: background 0.5s ease;
 }
 
 .blueprint-grid {
     background-image:
-        linear-gradient(rgba(120, 194, 173, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(120, 194, 173, 0.1) 1px, transparent 1px);
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: 1;
     mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
@@ -156,10 +188,11 @@ h6,
 
 .star {
     position: absolute;
-    background: white;
+    background: var(--star-color);
     border-radius: 50%;
     opacity: 0.5;
     animation: twinkle var(--duration) ease-in-out infinite;
+    transition: background 0.5s ease;
 }
 
 @keyframes twinkle {
@@ -214,10 +247,11 @@ h6,
     height: 600px;
     border-radius: 50%;
     filter: blur(120px);
-    opacity: 0.15;
+    opacity: var(--nebula-opacity);
     z-index: 0;
     pointer-events: none;
     animation: drift 30s ease-in-out infinite;
+    transition: opacity 0.5s ease;
 }
 
 .nebula-1 {
