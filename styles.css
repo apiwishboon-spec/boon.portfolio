@@ -1,0 +1,264 @@
+/* Fonts */
+:root {
+    --font-primary: 'Outfit', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    /* Theme Colors */
+    --color-primary-green: #78c2ad;
+    /* A nice pastel mint */
+    --color-primary-hover: #5aa892;
+}
+
+body {
+    font-family: var(--font-secondary);
+    overflow-x: hidden;
+    background-color: #f0f2f5;
+    /* Match Morph body bg */
+    background-image:
+        linear-gradient(rgba(120, 194, 173, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120, 194, 173, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    /* Technical Grid */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: var(--font-primary);
+    letter-spacing: -0.02em;
+}
+
+/* Color Overrides for Pastel Green Theme */
+.text-primary {
+    color: var(--color-primary-green) !important;
+}
+
+.bg-primary {
+    background-color: var(--color-primary-green) !important;
+}
+
+.border-primary {
+    border-color: var(--color-primary-green) !important;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-green) !important;
+    border-color: var(--color-primary-green) !important;
+    background-image: none !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--color-primary-hover) !important;
+    border-color: var(--color-primary-hover) !important;
+    background-image: none !important;
+}
+
+.btn-outline-primary {
+    color: var(--color-primary-green) !important;
+    border-color: var(--color-primary-green) !important;
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary-green) !important;
+    border-color: var(--color-primary-green) !important;
+    color: white !important;
+    background-image: none !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--color-primary-green) !important;
+}
+
+/* Navbar Blur */
+.blurred-nav {
+    backdrop-filter: blur(10px);
+    background-color: rgba(240, 242, 245, 0.8) !important;
+}
+
+/* Bootswatch Morph Overrides & Soft Shadows */
+.shadow-soft {
+    box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff !important;
+}
+
+.btn-primary.shadow-soft {
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #ffffff !important;
+    border: none;
+    transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s;
+}
+
+.btn-primary.shadow-soft:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 16px #b8b9be, -8px -8px 16px #ffffff !important;
+}
+
+/* Hero Shapes */
+.shape {
+    position: absolute;
+    filter: blur(80px);
+    z-index: 1;
+    opacity: 0.6;
+    animation: float 10s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--color-primary-green);
+    /* Morph Primaryish color */
+    top: -100px;
+    left: -100px;
+    border-radius: 50%;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    background: #f3969a;
+    /* Secondary/Accent */
+    bottom: -50px;
+    right: -50px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(30px, 20px) rotate(10deg);
+    }
+}
+
+/* Animation Utility Classes */
+.reveal-text {
+    animation: slideUpFade 1s var(--ease-out-expo) forwards;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.reveal-delay-1 {
+    animation: slideUpFade 1s var(--ease-out-expo) 0.2s forwards;
+    opacity: 0;
+    /* Init hidden */
+    animation-fill-mode: forwards;
+}
+
+.reveal-delay-2 {
+    animation: slideUpFade 1s var(--ease-out-expo) 0.4s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Reveal States (Handled by JS IntersectionObserver) */
+.scroll-reveal {
+    opacity: 0;
+    transition: all 1s var(--ease-out-expo);
+    will-change: transform, opacity;
+}
+
+/* Transform types */
+.slide-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-right {
+    transform: translateX(-50px);
+}
+
+.slide-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-left {
+    transform: translateX(50px);
+}
+
+.scale-up.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.scale-up {
+    transform: scale(0.9);
+}
+
+.fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-up {
+    transform: translateY(50px);
+}
+
+.blur-in.active {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.blur-in {
+    filter: blur(10px);
+}
+
+/* Stagger Children */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-out-expo);
+}
+
+.stagger-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Skills Pills */
+.skill-pill {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #eef0f3;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #555;
+    margin: 5px;
+}
+
+/* Project Cards */
+.project-card {
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    z-index: 10;
+}
