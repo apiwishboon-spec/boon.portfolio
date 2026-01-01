@@ -41,3 +41,4 @@ Check out the live deployment here: [boon-profile.pages.dev](https://boon-profil
 
 ---
 *Created with ❤️ by Boon — "Using Python & Code to solve real-world problems."*
+*Contact: [apiwishboon@gmail.com](mailto:apiwishboon@gmail.com) | Discord: boon06409*
