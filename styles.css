@@ -423,7 +423,8 @@ h6,
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -1;
+    z-index: 2;
+    /* Increased from -1 to be on top of background but below text (z-2/z-3) */
     overflow: hidden;
 }
 
@@ -518,14 +519,17 @@ h6,
 /* Voyage Floating Element */
 .voyage-element {
     animation: voyage-drift 60s ease-in-out infinite !important;
-    z-index: 5 !important;
-    opacity: 0.8 !important;
+    z-index: 10 !important;
+    /* Bring forward */
+    opacity: 1 !important;
+    /* Full visibility */
 }
 
 .voyage-element img {
-    width: 60px !important;
+    width: 120px !important;
+    /* Larger */
     height: auto !important;
-    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)) !important;
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4)) !important;
 }
 
 @keyframes voyage-drift {
