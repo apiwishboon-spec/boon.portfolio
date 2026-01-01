@@ -472,12 +472,12 @@ h6,
 /* Compact Certificate Display */
 .certificate-frame {
     background: white !important;
-    padding: 0.3rem !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
-    margin-bottom: 1rem !important;
+    padding: 0.4rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 1.5rem !important;
     position: relative !important;
-    max-width: 120px !important;
-    /* Forces it small */
+    max-width: 180px !important;
+    /* Increased from 120px */
     border-radius: 2px !important;
     display: inline-block !important;
 }
@@ -489,7 +489,7 @@ h6,
 }
 
 .certificate-inner img {
-    max-height: 120px !important;
+    max-height: 160px !important;
     width: auto !important;
     object-fit: contain !important;
 }
@@ -508,9 +508,9 @@ h6,
 
 /* Archive Override */
 .certificate-frame.archive {
-    max-width: 280px !important;
+    max-width: 350px !important;
 }
 
 .certificate-frame.archive .certificate-inner img {
-    max-height: 240px !important;
+    max-height: 280px !important;
 }
