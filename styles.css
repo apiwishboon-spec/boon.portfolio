@@ -102,35 +102,6 @@ h6,
     overflow: hidden;
 }
 
-/* Glass Shimmer Animation */
-.glass-card::after {
-    content: '';
-    position: absolute;
-    top: -150%;
-    left: -150%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(45deg,
-            transparent 45%,
-            rgba(255, 255, 255, 0.1) 48%,
-            rgba(255, 255, 255, 0.4) 50%,
-            rgba(255, 255, 255, 0.1) 52%,
-            transparent 55%);
-    transform: rotate(45deg);
-    animation: shimmer-sweep 8s infinite linear;
-    pointer-events: none;
-}
-
-@keyframes shimmer-sweep {
-    0% {
-        transform: rotate(45deg) translate(-50%, -50%);
-    }
-
-    100% {
-        transform: rotate(45deg) translate(50%, 50%);
-    }
-}
-
 /* Neon Glows */
 .btn-primary:hover,
 .btn-primary:focus {
