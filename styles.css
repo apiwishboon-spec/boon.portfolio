@@ -478,8 +478,8 @@ h6,
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
     margin-bottom: 1.5rem !important;
     position: relative !important;
-    max-width: 350px !important;
-    /* Increased from 180px */
+    max-width: 450px !important;
+    /* Increased from 350px */
     border-radius: 2px !important;
     display: inline-block !important;
 }
@@ -491,7 +491,7 @@ h6,
 }
 
 .certificate-inner img {
-    max-height: 300px !important;
+    max-height: 400px !important;
     width: auto !important;
     object-fit: contain !important;
 }
@@ -510,11 +510,11 @@ h6,
 
 /* Archive Override */
 .certificate-frame.archive {
-    max-width: 450px !important;
+    max-width: 600px !important;
 }
 
 .certificate-frame.archive .certificate-inner img {
-    max-height: 380px !important;
+    max-height: 500px !important;
 }
 
 /* Voyage Floating Element */
