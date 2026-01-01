@@ -514,3 +514,32 @@ h6,
 .certificate-frame.archive .certificate-inner img {
     max-height: 280px !important;
 }
+
+/* Voyage Floating Element */
+.voyage-element {
+    animation: voyage-drift 60s ease-in-out infinite !important;
+    z-index: 5 !important;
+    opacity: 0.8 !important;
+}
+
+.voyage-element img {
+    width: 60px !important;
+    height: auto !important;
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)) !important;
+}
+
+@keyframes voyage-drift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    33% {
+        transform: translate(-100px, 50px) rotate(10deg) scale(1.05);
+    }
+
+    66% {
+        transform: translate(50px, -30px) rotate(-5deg) scale(0.95);
+    }
+}
