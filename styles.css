@@ -1,7 +1,8 @@
 /* Fonts */
 :root {
-    --font-primary: 'Outfit', sans-serif;
-    --font-secondary: 'Inter', sans-serif;
+    --font-primary: 'Orbitron', sans-serif;
+    --font-secondary: 'Chakra Petch', sans-serif;
+    --font-body: 'Inter', sans-serif;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
     /* Theme Colors */
@@ -11,7 +12,7 @@
 }
 
 body {
-    font-family: var(--font-secondary);
+    font-family: var(--font-body);
     overflow-x: hidden;
     background-color: #f0f2f5;
     /* Match Morph body bg */
@@ -28,9 +29,19 @@ h3,
 h4,
 h5,
 h6,
-.navbar-brand {
+.navbar-brand,
+.orbital-title {
     font-family: var(--font-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.btn,
+.badge,
+.skill-pill,
+.nav-link {
+    font-family: var(--font-secondary);
+    letter-spacing: 0.02em;
 }
 
 /* Color Overrides for Pastel Green Theme */
