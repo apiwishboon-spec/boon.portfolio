@@ -505,3 +505,12 @@ h6,
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2) !important;
     z-index: 5 !important;
 }
+
+/* Archive Override */
+.certificate-frame.archive {
+    max-width: 280px !important;
+}
+
+.certificate-frame.archive .certificate-inner img {
+    max-height: 240px !important;
+}
