@@ -468,3 +468,40 @@ h6,
     transform: translateY(-5px) scale(1.01);
     z-index: 10;
 }
+
+/* Compact Certificate Display */
+.certificate-frame {
+    background: white !important;
+    padding: 0.3rem !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 1rem !important;
+    position: relative !important;
+    max-width: 120px !important;
+    /* Forces it small */
+    border-radius: 2px !important;
+    display: inline-block !important;
+}
+
+.certificate-inner {
+    border: 2px solid #ccd1d9 !important;
+    padding: 1px !important;
+    height: 100% !important;
+}
+
+.certificate-inner img {
+    max-height: 120px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+.certificate-pin {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2) !important;
+    z-index: 5 !important;
+}
