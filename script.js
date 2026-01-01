@@ -23,8 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 0. Space Theme: Starfield Generation
+    // 0. Space Theme: Starfield & Dust Generation
+    const generateDust = (container, count) => {
+        if (!container) return;
+        for (let i = 0; i < count; i++) {
+            const dust = document.createElement('div');
+            dust.className = 'dust-particle';
+            const size = Math.random() * 3 + 1 + 'px';
+            dust.style.width = size;
+            dust.style.height = size;
+            dust.style.left = Math.random() * 100 + '%';
+            dust.style.top = Math.random() * 100 + '%';
+            dust.style.setProperty('--duration', Math.random() * 20 + 10 + 's');
+            container.appendChild(dust);
+        }
+    };
+
     const starfield = document.getElementById('starfield');
+    const dustContainer = document.getElementById('cosmic-dust');
+
     if (starfield) {
         for (let i = 0; i < 150; i++) {
             const star = document.createElement('div');
@@ -38,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
             starfield.appendChild(star);
         }
     }
+
+    generateDust(document.getElementById('cosmic-dust'), 80);
 
     // 0. Code Theme: Typewriter Effect
     const typewriter = document.getElementById('typewriter');

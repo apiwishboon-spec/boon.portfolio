@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prizes & Certificates | Boon</title>
+    <title>Hall of Fame | Boon</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,12 @@
     </nav>
 
     <!-- Header -->
-    <header class="py-5 mt-5 text-center">
-        <div class="container py-5">
-            <h1 class="display-4 fw-bold reveal-text">Prizes & <span class="text-primary">Certificates</span></h1>
+    <header class="py-5 mt-5 text-center position-relative overflow-hidden"
+        style="background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%); min-height: 300px; display: flex; align-items: center;">
+        <div id="cosmic-dust" class="position-absolute w-100 h-100 top-0 start-0"
+            style="pointer-events: none; opacity: 0.4;"></div>
+        <div class="container py-5 z-2 position-relative">
+            <h1 class="display-4 fw-bold reveal-text">Hall of <span class="text-primary">Frame</span></h1>
             <p class="lead text-muted reveal-delay-1">Competitions, Certificates, and Milestones.</p>
         </div>
     </header>
@@ -53,7 +56,7 @@
 
                 <!-- Prize Item 1 -->
                 <div class="col-md-4 stagger-item">
-                    <div class="card shadow-soft border-0 h-100 project-card">
+                    <div class="card shadow-soft border-0 h-100 project-card featured-achievement">
                         <div class="card-body text-center p-4">
                             <!-- Certificate Frame -->
                             <div class="certificate-frame archive mx-auto" style="transform: rotate(-2deg);">
