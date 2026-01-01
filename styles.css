@@ -337,6 +337,10 @@ h6,
     will-change: transform, opacity;
 }
 
+.scroll-reveal.active {
+    opacity: 1;
+}
+
 /* Transform types */
 .slide-right.active {
     opacity: 1;
