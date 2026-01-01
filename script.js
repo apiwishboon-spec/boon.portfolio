@@ -58,6 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1200);
     }
 
+    // 4. Hide Science Decorations when in Hero
+    const scienceDecor = document.querySelector('.science-decorations');
+    const heroSection = document.getElementById('hero');
+    if (scienceDecor && heroSection) {
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    scienceDecor.style.opacity = '0';
+                    scienceDecor.style.visibility = 'hidden';
+                } else {
+                    scienceDecor.style.opacity = '1';
+                    scienceDecor.style.visibility = 'visible';
+                }
+            });
+        }, { threshold: 0.1 });
+        heroObserver.observe(heroSection);
+    }
+
     // 1. Intersection Observer for Scroll Reveals
     const observerOptions = {
         root: null,

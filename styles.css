@@ -426,6 +426,7 @@ h6,
     z-index: 2;
     /* Increased from -1 to be on top of background but below text (z-2/z-3) */
     overflow: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .sci-icon {
