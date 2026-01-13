@@ -160,4 +160,45 @@ document.addEventListener('DOMContentLoaded', () => {
             ticking = true;
         }
     });
+
+    // 5. Voyager Easter Egg Interaction
+    const voyager = document.getElementById('voyage-trigger');
+    if (voyager) {
+        let tapCount = 0;
+        let lastTapTime = 0;
+        const RESET_TIME = 3000; // 3 seconds
+        const REQUIRED_TAPS = 7;
+
+        voyager.addEventListener('pointerdown', (e) => {
+            const currentTime = Date.now();
+
+            // Check if we need to reset the count
+            if (currentTime - lastTapTime > RESET_TIME) {
+                tapCount = 0;
+            }
+
+            tapCount++;
+            lastTapTime = currentTime;
+
+            // Micro-feedback: Visual tap
+            voyager.classList.add('probe-tap');
+            setTimeout(() => voyager.classList.remove('probe-tap'), 200);
+
+            // Progress feedback: Vibrate more as we get closer
+            if (tapCount >= REQUIRED_TAPS - 2 && tapCount < REQUIRED_TAPS) {
+                voyager.classList.add('probe-vibrate');
+            }
+
+            if (tapCount >= REQUIRED_TAPS) {
+                // SUCCESS: Redirect to secret
+                voyager.style.transition = 'all 1s ease-in';
+                voyager.style.transform = 'scale(2) rotate(20deg) translateY(-100vh)';
+                voyager.style.opacity = '0';
+
+                setTimeout(() => {
+                    window.location.href = 'secret.html';
+                }, 800);
+            }
+        });
+    }
 });

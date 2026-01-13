@@ -622,24 +622,40 @@ h6,
     }
 }
 
-/* Secret Access Point */
-.secret-dot {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 6px;
-    height: 6px;
-    background: var(--color-primary-green);
-    border-radius: 50%;
-    opacity: 0.15;
-    cursor: crosshair;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 10px rgba(120, 194, 173, 0);
-    z-index: 1000;
+/* Voyager Trigger Feedback */
+.voyage-element {
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease, box-shadow 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.secret-dot:hover {
-    opacity: 0.8;
-    box-shadow: 0 0 15px var(--color-primary-green);
-    transform: scale(1.5);
+.voyage-element.probe-tap {
+    transform: scale(0.9) rotate(-5deg) !important;
+    filter: brightness(1.5) drop-shadow(0 0 20px var(--color-primary-green)) !important;
+}
+
+@keyframes probe-vibrate {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(2px, -2px);
+    }
+
+    50% {
+        transform: translate(-2px, 2px);
+    }
+
+    75% {
+        transform: translate(2px, 2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.voyage-element.probe-vibrate {
+    animation: probe-vibrate 0.1s linear infinite;
 }
