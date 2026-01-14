@@ -42,5 +42,7 @@ Check out the live deployment here: [boon-profile.pages.dev](https://boon-profil
 ---
 *Created with ❤️ by Boon — "Using Python & Code to solve real-world problems."*
 *Contact: [apiwishboon@gmail.com](mailto:apiwishboon@gmail.com) | Discord: boon06409*
-Find the easter egg at the website.
+> [!TIP]
+> **Mission Intelligence**: Deep-space signals suggest a hidden repository within the hub. Seek the Voyager to begin decryption. The northern sky holds the final key.
+
 -Boon
