@@ -593,8 +593,9 @@ h6,
 /* Voyage Floating Element */
 .voyage-element {
     animation: voyage-drift 120s ease-in-out infinite !important;
-    z-index: 1 !important;
-    /* Above starfield (0/1) but behind text (z-2) */
+    z-index: 999 !important;
+    pointer-events: auto !important;
+    /* Above all other content */
     opacity: 1 !important;
     /* Full visibility */
 }
