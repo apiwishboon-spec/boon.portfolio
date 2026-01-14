@@ -2,41 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deep Space | Star Access</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Chakra+Petch:wght@400;600&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/morph/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootswatch -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/morph/bootstrap.min.css" />
 
     <style>
-        .star-container {
+        :root {
+            --green: #78c2ad;
+        }
+
+        body.star-container {
             min-height: 100vh;
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: "Inter", sans-serif;
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #000;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
         }
 
+        /* Nebula */
         .nebula-glow {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(120, 194, 173, 0.1) 0%, transparent 70%);
-            z-index: 0;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(120, 194, 173, 0.12), transparent 70%);
             pointer-events: none;
+            z-index: 0;
         }
 
+        /* Starfield */
+        #starfield {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: twinkle var(--duration) infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.3;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Card */
         .star-card {
             max-width: 800px;
             width: 90%;
@@ -51,16 +83,16 @@
         }
 
         .clearance-label {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 0.8rem;
+            font-family: "Chakra Petch", sans-serif;
+            font-size: 0.75rem;
             letter-spacing: 0.5em;
-            color: var(--color-primary-green);
+            color: var(--green);
             text-transform: uppercase;
             margin-bottom: 2rem;
-            animation: pulse-op 2s infinite;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse-op {
+        @keyframes pulse {
 
             0%,
             100% {
@@ -72,48 +104,56 @@
             }
         }
 
+        /* Constellation */
+        .constellation-map {
+            width: 220px;
+            height: 160px;
+            margin: 2.5rem auto;
+            opacity: 0.7;
+        }
+
         .star-portal {
-            margin-top: 3rem;
             display: inline-block;
-            padding: 1rem 2rem;
-            border: 1px solid var(--color-primary-green);
-            color: var(--color-primary-green);
-            text-decoration: none;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
-            font-family: var(--font-secondary);
+            border: 1px solid var(--green);
+            color: var(--green);
+            text-decoration: none;
+            font-family: "Chakra Petch", sans-serif;
             transition: all 0.3s ease;
         }
 
         .star-portal:hover {
-            background: var(--color-primary-green);
+            background: var(--green);
             color: #000;
-            box-shadow: 0 0 30px var(--color-primary-green);
-        }
-
-        /* Star Map Verification Display */
-        .constellation-map {
-            width: 200px;
-            height: 150px;
-            margin: 2rem auto;
-            opacity: 0.6;
+            box-shadow: 0 0 30px var(--green);
         }
     </style>
 </head>
 
 <body class="star-container">
     <div class="nebula-glow"></div>
-    <div id="starfield" class="position-absolute w-100 h-100" style="z-index: 1;"></div>
+    <div id="starfield"></div>
 
     <div class="star-card">
-        <div class="clearance-label">Clearance: Level 7 (Deep Space)</div>
-        <h1 class="display-3 fw-bold mb-4 text-primary">Objective <span class="text-white">Reached</span></h1>
+        <div class="clearance-label">Clearance: Level 7 · Deep Space</div>
 
-        <p class="lead opacity-75">"The universe is under no obligation to make sense to you."</p>
+        <h1 class="display-3 fw-bold mb-4 text-primary">
+            Objective <span class="text-white">Reached</span>
+        </h1>
+
+        <p class="lead opacity-75">
+            “The universe is under no obligation to make sense to you.”
+        </p>
 
         <div class="constellation-map">
             <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 120 L50 110 L80 100 L110 90 L115 60 L145 50 L180 40" stroke="#78c2ad" stroke-width="2"
-                    stroke-dasharray="4 4" />
+                    stroke-dasharray="200" stroke-dashoffset="200">
+                    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.6s" fill="freeze" />
+                </path>
+
                 <circle cx="20" cy="120" r="3" fill="#78c2ad" />
                 <circle cx="50" cy="110" r="3" fill="#78c2ad" />
                 <circle cx="80" cy="100" r="3" fill="#78c2ad" />
@@ -124,29 +164,53 @@
             </svg>
         </div>
 
-        <p class="text-muted">You have successfully mapped the northern sky. The terminal is now fully decrypted.</p>
+        <p class="text-muted">
+            You have successfully mapped the northern sky. The terminal is now fully decrypted.
+        </p>
 
-        <a href="index.html" class="star-portal">Return to Neutral Territory</a>
+        <p class="text-muted opacity-50 mt-2">
+            Signal archived. Further exploration is… optional.
+        </p>
+
+        <a href="/index.html" class="star-portal">
+            Return to Neutral Territory
+        </a>
+
+        <p class="small opacity-25 mt-4">
+            archive_1980.log — unavailable
+            <!-- lol 😂😂😂 -->
+        </p>
     </div>
 
     <script>
         function createStars() {
-            const starfield = document.getElementById('starfield');
-            const count = 200;
+            const starfield = document.getElementById("starfield");
+            const count = 220;
+
             for (let i = 0; i < count; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
+                const star = document.createElement("div");
+                star.className = "star";
+
                 const size = Math.random() * 2 + 1;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 star.style.top = `${Math.random() * 100}%`;
                 star.style.left = `${Math.random() * 100}%`;
-                star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+                star.style.setProperty("--duration", `${Math.random() * 3 + 2}s`);
+
                 starfield.appendChild(star);
             }
         }
+
         createStars();
+
+        console.log(
+            "%cSTAR ACCESS GRANTED\nSome patterns only appear once.",
+            "color:#78c2ad;font-family:monospace;"
+        );
     </script>
+
+    <!-- some patterns only appear once -->
 </body>
 
 </html>
